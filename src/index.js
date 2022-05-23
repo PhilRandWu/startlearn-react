@@ -3,47 +3,47 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-05-22 18:12:14
- * @LastEditTime: 2022-05-22 19:28:27
+ * @LastEditTime: 2022-05-23 08:48:05
  * @LastEditors: PhilRandWu
  */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-const a = 2, b = 3;
-const obj = {
-  a: 1,
-  b: 2
+import dog1 from './assest/dog.webp';
+import dog2 from './assest/dog2.webp';
+import dog3 from './assest/dog3.webp';
+
+let index = 0;
+let timer = null;
+const srcArr = [dog1, dog2, dog3];
+const rootDom = document.getElementById('app')
+const root = ReactDOM.createRoot(rootDom);
+
+function render() {
+  root.render(<img alt='' src={srcArr[index]}></img>)
 }
-const arr = ['1', 2, 3, 4, 5];
-const obj1 = <div>呵呵</div>
-const imgSrc = 'https://img0.baidu.com/it/u=1900973516,3675630457&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500';
-const dangerous = '危险的文本';
-const span = (
-  <>
-    <span>我是一个<h1> span </h1></span>
-    <div>hehe</div>
-    <h1>{a} * {b} = {a * b}</h1>
-    {/* 以下不会输出 */}
-    {null}
-    {undefined}
-    {false}
 
-    {/* 普通对象直接报错，但 React 元素对象可以输出 */}
-    {/* { obj } */}
-    {obj1}
 
-    {/* 数组会每一个生成一个子元素 */}
-    {arr}
+function start() {
+  clearInterval(timer);
+  timer = setInterval(() => {
+    index = (index + 1) % 3;
+    render();
+  }, 2000);
+}
 
-    <img alt='' src={imgSrc} className={'border'} style={{
-      marginLeft: 5,
-      width: 200
-    }}></img>
-    <div dangerouslySetInnerHTML={{
-      __html: dangerous
-    }}></div>
-  </>
-);
-const root = ReactDOM.createRoot(document.getElementById('app'));
-root.render(span);
+function stop() {
+  clearInterval(timer);
+}
+
+
+render();
+start();
+
+rootDom.onmouseenter = function () {
+  stop();
+}
+rootDom.onmouseleave = function () {
+  start();
+}
