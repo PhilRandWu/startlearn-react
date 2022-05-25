@@ -7,7 +7,7 @@
   background-color: rgb(0, 0, 0, 0.1);
   color: #ccc;
 }
-.modal p {
+.modal .center {
   position: absolute;
   left: 50%;
   top: 50%;
