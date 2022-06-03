@@ -3,7 +3,7 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-01 20:43:02
- * @LastEditTime: 2022-06-03 20:43:22
+ * @LastEditTime: 2022-06-03 20:45:40
  * @LastEditors: PhilRandWu
  */
 import React, { Component } from 'react'
@@ -11,7 +11,7 @@ import React, { Component } from 'react'
 // import withLogin from '../../HOC/withLogin'
 // import SingleCheck from '../Form/SingleCheck'
 import Pulldown from '../Form/Pulldown'
-import SingleRadioCheck from '../Form/SingleRadioCheck'
+// import SingleRadioCheck from '../Form/SingleRadioCheck'
 // const PulldownLog = withLogin(withLog(Pulldown))
 
 export default class App extends Component {
