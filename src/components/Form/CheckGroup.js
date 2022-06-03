@@ -3,12 +3,12 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-03 10:08:16
- * @LastEditTime: 2022-06-03 11:05:53
+ * @LastEditTime: 2022-06-03 17:05:42
  * @LastEditors: PhilRandWu
  */
 
 import React, { Component } from 'react'
-
+import type from '../../utils/commonTypes'
 // props： {
 //     name,
 //         isChooseArr,
@@ -17,6 +17,20 @@ import React, { Component } from 'react'
 //         ],
 // }
 export default class checkGroup extends Component {
+
+    static defaultProps = {
+        name: 'checkbox',
+        isChooseArr: [],
+        arr: [],
+    }
+
+    static propTypes  = {
+        name: type.name,
+        isChooseArr: type.isChooseArr,
+        arr: type.arr,
+        onChange: type.onChange
+    }
+
     getCheckGroup = props => {
         return props.arr.map(item => (
             <label key={item.id}>
