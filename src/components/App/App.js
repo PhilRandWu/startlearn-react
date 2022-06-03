@@ -3,13 +3,16 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-01 20:43:02
- * @LastEditTime: 2022-06-03 17:16:14
+ * @LastEditTime: 2022-06-03 19:22:15
  * @LastEditors: PhilRandWu
  */
 import React, { Component } from 'react'
+import withLog from '../../HOC/withLog'
+import withLogin from '../../HOC/withLogin'
 // import CheckGroup from '../Form/CheckGroup'
 import Pulldown from '../Form/Pulldown'
 // import RadioCheckGroup from '../Form/RadioCheckGroup'
+const PulldownLog = withLogin(withLog(Pulldown))
 
 export default class App extends Component {
 
@@ -23,7 +26,7 @@ export default class App extends Component {
     //         { id: "4", value: 'Basketball', txt: '篮球' },
     //         { id: "5", value: 'other', txt: '其他' }
     //     ],
-        
+
     // }
     // render() {
     //     return (
@@ -77,11 +80,15 @@ export default class App extends Component {
 
     render() {
         return (
-            <Pulldown {...this.state} onChange={value => {
-                this.setState({
-                    value
-                })
-            }}/>
+            <PulldownLog
+                {...this.state}
+                onChange={value => {
+                    this.setState({
+                        value
+                    })
+                }}
+                isLogin
+            />
         )
     }
 }
