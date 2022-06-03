@@ -3,34 +3,43 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-03 14:56:37
- * @LastEditTime: 2022-06-03 17:15:24
+ * @LastEditTime: 2022-06-03 20:44:08
  * @LastEditors: PhilRandWu
  */
 import React, { Component } from 'react'
+import withGroupDatas from '../../HOC/withGroupDatas'
 import type from '../../utils/commonTypes'
 
-export default class Pulldown extends Component {
 
+class Options extends Component {
     static defaultProps = {
-        name: 'select',
-        value: '',
-        arr: []
+        Info: {}
     }
 
     static propTypes = {
-        name: type.name,
-        value: type.value.isRequired,
-        arr: type.arr.isRequired
+        Info: type.singArr.isRequired
     }
 
-    getSelectElements = () => {
-        return this.props.arr.map(item => (
+    render() {
+        return (
             <option
-                key={item.id}
-                value={item.value}
-                checked={item.value === this.props.value}
-            >{item.txt}</option>
-        ))
+                value={this.props.Info.value}
+                checked={this.props.Info.value === this.props.value}
+            >{this.props.Info.txt}</option>
+        )
+    }
+}
+
+
+const GroupOptions = withGroupDatas(Options);
+
+
+export default class Pulldown extends Component {
+
+    static propTypes = {
+        name: type.name,
+        value: type.value,
+        onChange: type.onChange
     }
 
     handleChange = e => {
@@ -39,10 +48,9 @@ export default class Pulldown extends Component {
     }
 
     render() {
-        const selectElements = this.getSelectElements();
         return (
-            <select value={this.props.value} onChange={this.handleChange}>
-                {selectElements}
+            <select name={this.props.name} value={this.props.value} onChange={this.handleChange}>
+                <GroupOptions {...this.props} />
             </select>
         )
     }
