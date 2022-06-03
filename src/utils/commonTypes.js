@@ -15,7 +15,11 @@ const type = {
             PropTypes.string
         ])
     })),
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    value: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string
+    ]),
 }
 
 export default type;
