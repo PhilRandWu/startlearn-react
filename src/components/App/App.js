@@ -3,11 +3,12 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-01 20:43:02
- * @LastEditTime: 2022-06-03 11:31:01
+ * @LastEditTime: 2022-06-03 14:59:46
  * @LastEditors: PhilRandWu
  */
 import React, { Component } from 'react'
 import CheckGroup from '../Form/CheckGroup'
+import Pulldown from '../Form/Pulldown'
 import RadioCheckGroup from '../Form/RadioCheckGroup'
 
 export default class App extends Component {
@@ -36,22 +37,48 @@ export default class App extends Component {
     // }
 
 
+    // state = {
+    //     name: 'radio',
+    //     arr: [
+    //         {
+    //             id: 1, value: 'male', txt: '男'
+    //         },
+    //         {
+    //             id: 2, value: 'female', txt: '女'
+    //         }
+    //     ],
+    //     value: 'male'
+    // }
+
+    // render() {
+    //     return (
+    //         <RadioCheckGroup {...this.state} onChange={value => {
+    //             this.setState({
+    //                 value
+    //             })
+    //         }}/>
+    //     )
+    // }
+
     state = {
-        name: 'radio',
+        name: 'select',
         arr: [
             {
-                id: 1, value: 'male', txt: '男'
+                id: 1, value: 'beijing', txt: '北京'
             },
             {
-                id: 2, value: 'female', txt: '女'
+                id: 2, value: 'shanghai', txt: '上海'
+            },
+            {
+                id: 2, value: 'xian', txt: '西安'
             }
         ],
-        value: 'male'
+        value: '北京'
     }
 
     render() {
         return (
-            <RadioCheckGroup {...this.state} onChange={value => {
+            <Pulldown {...this.state} onChange={value => {
                 this.setState({
                     value
                 })
