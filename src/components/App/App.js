@@ -1,16 +1,16 @@
+/*
+ * @Description: 
+ * @Author: PhilRandWu
+ * @Github: https://github/PhilRandWu
+ * @Date: 2022-06-01 20:43:02
+ * @LastEditTime: 2022-06-01 20:43:02
+ * @LastEditors: PhilRandWu
+ */
 import React from 'react'
-import Layout from '../Layout/Layout'
+import Form from '../Form/Form'
 
 export default function App() {
-    const configProps = {
-        leftWidth: 20,
-        rightWidth: 60,
-        leftContent: <div>左边区域</div>,
-        rightContent: <div>右边区域</div>
-    }
     return (
-        <Layout {...configProps}>
-            <h1>中间区域</h1>
-        </Layout>
+        <Form />
     )
 }
