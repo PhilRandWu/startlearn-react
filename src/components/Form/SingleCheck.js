@@ -3,11 +3,12 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-03 10:08:16
- * @LastEditTime: 2022-06-03 17:16:22
+ * @LastEditTime: 2022-06-03 20:24:33
  * @LastEditors: PhilRandWu
  */
 
 import React, { Component } from 'react'
+import withGroupDatas from '../../HOC/withGroupDatas'
 import type from '../../utils/commonTypes'
 // props： {
 //     name,
@@ -16,34 +17,22 @@ import type from '../../utils/commonTypes'
 //             { id: 1, value: 'football',txt: '足球'}
 //         ],
 // }
-export default class checkGroup extends Component {
+class SingleCheck extends Component {
 
     static defaultProps = {
         name: 'checkbox',
+        Info: {},
         isChooseArr: [],
-        arr: [],
     }
 
-    static propTypes  = {
+    static propTypes = {
         name: type.name,
-        isChooseArr: type.isChooseArr,
-        arr: type.arr,
+        Info: type.singArr.isRequired,
+        isChooseArr: type.isChooseArr.isRequired,
         onChange: type.onChange
     }
 
-    getCheckGroup = props => {
-        return props.arr.map(item => (
-            <label key={item.id}>
-                <input
-                    name={props.name}
-                    type="checkbox"
-                    value={item.value}
-                    checked={props.isChooseArr.includes(item.value)}
-                    onChange={this.handleChange}
-                />{item.txt}
-            </label>
-        ))
-    }
+
     handleChange = e => {
         let value = e.target.value;
         if (e.target.checked) {
@@ -58,15 +47,20 @@ export default class checkGroup extends Component {
     }
 
     render() {
-        const elements = this.getCheckGroup(this.props);
         return (
-            <div>
-                {elements}
-            </div>
+            <label>
+                <input
+                    name={this.props.name}
+                    type="checkbox"
+                    value={this.props.Info.value}
+                    checked={this.props.isChooseArr.includes(this.props.Info.value)}
+                    onChange={this.handleChange}
+                />{this.props.Info.txt}
+            </label>
         )
     }
 }
 
 
-
+export default withGroupDatas(SingleCheck)
 
