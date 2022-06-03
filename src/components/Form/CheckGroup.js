@@ -3,7 +3,7 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-03 10:08:16
- * @LastEditTime: 2022-06-03 17:05:42
+ * @LastEditTime: 2022-06-03 17:16:22
  * @LastEditors: PhilRandWu
  */
 
@@ -45,7 +45,6 @@ export default class checkGroup extends Component {
         ))
     }
     handleChange = e => {
-        let name = e.target.name;
         let value = e.target.value;
         if (e.target.checked) {
             value = [

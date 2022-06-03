@@ -3,12 +3,25 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-03 14:56:37
- * @LastEditTime: 2022-06-03 14:58:46
+ * @LastEditTime: 2022-06-03 17:15:24
  * @LastEditors: PhilRandWu
  */
 import React, { Component } from 'react'
+import type from '../../utils/commonTypes'
 
 export default class Pulldown extends Component {
+
+    static defaultProps = {
+        name: 'select',
+        value: '',
+        arr: []
+    }
+
+    static propTypes = {
+        name: type.name,
+        value: type.value.isRequired,
+        arr: type.arr.isRequired
+    }
 
     getSelectElements = () => {
         return this.props.arr.map(item => (
