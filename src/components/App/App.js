@@ -3,13 +3,15 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-01 20:43:02
- * @LastEditTime: 2022-06-03 17:16:14
+ * @LastEditTime: 2022-06-04 21:27:32
  * @LastEditors: PhilRandWu
  */
 import React, { Component } from 'react'
 // import CheckGroup from '../Form/CheckGroup'
 import Pulldown from '../Form/Pulldown'
 // import RadioCheckGroup from '../Form/RadioCheckGroup'
+
+
 
 export default class App extends Component {
 
@@ -59,6 +61,7 @@ export default class App extends Component {
     //     )
     // }
 
+
     state = {
         name: 'select',
         arr: [
@@ -75,9 +78,15 @@ export default class App extends Component {
         value: '北京'
     }
 
+    pullRef = React.createRef();
+
+    componentDidMount() {
+        console.log(this.pullRef)
+    }
+
     render() {
         return (
-            <Pulldown {...this.state} onChange={value => {
+            <Pulldown ref={this.pullRef} {...this.state} onChange={value => {
                 this.setState({
                     value
                 })
