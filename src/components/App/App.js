@@ -3,15 +3,21 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-01 20:43:02
- * @LastEditTime: 2022-06-04 21:27:32
+ * @LastEditTime: 2022-06-04 21:43:19
  * @LastEditors: PhilRandWu
  */
-import React, { Component } from 'react'
+import React, { Component, forwardRef } from 'react'
 // import CheckGroup from '../Form/CheckGroup'
 import Pulldown from '../Form/Pulldown'
 // import RadioCheckGroup from '../Form/RadioCheckGroup'
 
+function Test(props, ref) {
+    return (
+        <h1 ref={ref}>{props.words}</h1>
+    )
+}
 
+const NewTest = forwardRef(Test);
 
 export default class App extends Component {
 
@@ -25,7 +31,7 @@ export default class App extends Component {
     //         { id: "4", value: 'Basketball', txt: '篮球' },
     //         { id: "5", value: 'other', txt: '其他' }
     //     ],
-        
+
     // }
     // render() {
     //     return (
@@ -79,18 +85,22 @@ export default class App extends Component {
     }
 
     pullRef = React.createRef();
+    funRef = React.createRef();
 
     componentDidMount() {
-        console.log(this.pullRef)
+        console.log(this.pullRef,this.funRef)
     }
 
     render() {
         return (
+            <>
             <Pulldown ref={this.pullRef} {...this.state} onChange={value => {
                 this.setState({
                     value
                 })
-            }}/>
+            }} />
+            <NewTest ref={this.funRef} words="hehe" />
+            </>
         )
     }
 }
