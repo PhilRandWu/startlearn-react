@@ -3,11 +3,12 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-01 20:43:02
- * @LastEditTime: 2022-06-07 08:01:57
+ * @LastEditTime: 2022-06-07 08:49:44
  * @LastEditors: PhilRandWu
  */
 import React, { Component, forwardRef } from 'react'
-import OldContext from '../../utils/OldContext';
+import NewContext from '../../utils/NewContext';
+// import OldContext from '../../utils/OldContext';
 // import CheckGroup from '../Form/CheckGroup'
 import Pulldown from '../Form/Pulldown'
 // import RadioCheckGroup from '../Form/RadioCheckGroup'
@@ -101,7 +102,8 @@ export default class App extends Component {
                 })
             }} />
             <NewTest ref={this.funRef} words="hehe" />
-            <OldContext />
+            {/* <OldContext /> */}
+            <NewContext />
             </>
         )
     }
