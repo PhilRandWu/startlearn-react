@@ -1,0 +1,17 @@
+.title {
+    float: left;
+    height: 100%;
+    line-height: 60px;
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.content {
+    float: right;
+    height: 100%;
+    line-height: 60px;
+}
+
+.content span {
+    margin: 0 5px;
+}

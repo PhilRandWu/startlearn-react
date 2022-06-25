@@ -3,7 +3,7 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-06-25 14:09:59
- * @LastEditTime: 2022-06-25 14:39:32
+ * @LastEditTime: 2022-06-25 15:42:02
  * @LastEditors: PhilRandWu
  */
 import React from 'react'
@@ -16,7 +16,7 @@ export default function MainRouter() {
         <BrowserRouter>
             <Routes>
                 <Route path="/login" exact element={<Login />} />
-                <Route path="/admin" element={<Admin />} />
+                <Route path="/admin/*" element={<Admin />} />
             </Routes>
         </BrowserRouter>
     )

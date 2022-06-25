@@ -1,0 +1,8 @@
+.searchBox {
+    margin: 50px;
+}
+
+.searchBox .keywords {
+    width: 50%;
+    margin: 0 10px;
+}
